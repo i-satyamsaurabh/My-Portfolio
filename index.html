@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Satyam Saurabh - Portfolio</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
         :root {
             --primary-color: #3b82f6;
             --secondary-color: #1d4ed8;
@@ -16,8 +18,8 @@
             --success-color: #10b981;
             --warning-color: #f59e0b;
             --error-color: #ef4444;
-            --gradient-start: #3b82f6;
-            --gradient-end: #1d4ed8;
+            --gradient-start: #60a5fa;
+            --gradient-end: #6398b0;
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
@@ -27,19 +29,19 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
             line-height: 1.7;
             color: var(--text-color);
-            background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+            background: linear-gradient(135deg, var(--bg-light) 0%, #f6f4f4 100%);
             min-height: 100vh;
             font-size: 16px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1250px;
             margin: 0 auto;
             padding: 2rem;
             animation: fadeIn 0.5s ease-out;
@@ -59,7 +61,7 @@
 
         header {
             background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-            padding: 4rem 3rem;
+            padding: 3rem 3rem;
             border-radius: 1.5rem;
             box-shadow: var(--shadow-lg);
             margin-bottom: 3rem;
@@ -128,7 +130,7 @@
             gap: 1rem;
             flex-wrap: wrap;
             margin-bottom: 2rem;
-            font-size: 1.0rem;
+            font-size: 1rem;
         }
 
         .contact-info span {
@@ -329,6 +331,8 @@
         .achievement-item {
             background: var(--bg-light);
             padding: 2rem;
+            padding-left: 1rem;
+            padding-right: 0.2rem;
             border-radius: 1.2rem;
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 0, 0, 0.08);
@@ -737,6 +741,74 @@
                 padding: 0.6rem 1.5rem;
             }
         }
+
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: nowrap;
+            /* Prevent wrapping */
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            overflow-x: auto;
+            /* Allow horizontal scrolling if needed */
+            padding-bottom: 10px;
+            /* Space for the scrollbar */
+            -webkit-overflow-scrolling: touch;
+            /* Smooth scrolling on iOS */
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            /* Reduced horizontal padding */
+            background: rgb(48, 118, 193);
+            border-radius: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            white-space: nowrap;
+            /* Prevent text wrapping */
+            flex: 0 0 auto;
+            /* Prevent shrinking */
+        }
+
+        /* Update mobile styles to maintain single line */
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: row;
+                /* Keep horizontal layout */
+                justify-content: flex-start;
+                /* Start from left */
+                width: 100%;
+                padding-bottom: 10px;
+                /* Space for scrollbar */
+            }
+
+            .contact-info span {
+                width: auto;
+                /* Remove full width */
+                justify-content: flex-start;
+                /* Left align content */
+                padding: 0.5rem 1rem;
+            }
+
+            /* Add custom scrollbar styling */
+            .contact-info::-webkit-scrollbar {
+                height: 4px;
+            }
+
+            .contact-info::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 2px;
+            }
+
+            .contact-info::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 2px;
+            }
+        }
     </style>
 </head>
 
@@ -766,9 +838,13 @@
                     </a>
                 </div>
 
-                <p>Third-year BS Data Science & Programming student at IIT Madras with a strong academic record (CGPA:
-                    8.78) and practical experience in data analytics, web development, and machine learning. Passionate
-                    about leveraging technology for business intelligence and development.</p>
+                <p style="font-family: 'Poppins', sans-serif; color: bisque;">
+                    Third-year BS Data Science & Programming student at IIT Madras with a strong academic record and
+                    hands-on experience in data analytics, web development, and machine learning. Passionate about
+                    leveraging technology for business intelligence, optimizing decision-making, and building impactful
+                    digital solutions.
+                </p>
+
             </div>
         </header>
 
@@ -777,19 +853,19 @@
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>Data Analytics</h3>
-                    <p>Data Cleaning, Modelling, Visualization (Power BI, Excel, SQL)</p>
+                    <p>Data Cleaning, Modelling, Visualization (Power BI, Excel, SQL, Pivot Tables, Dashboard)</p>
                 </div>
                 <div class="skill-category">
                     <h3>Web Development</h3>
-                    <p>Python, HTML, CSS, JavaScript, Flask, Jinja, Bootstrap</p>
+                    <p>Python, HTML, CSS, JavaScript, Flask, Jinja, Bootstrap, Render, Visual Studio</p>
                 </div>
                 <div class="skill-category">
                     <h3>Additional</h3>
-                    <p>AI, ML, Database Management, MS Office</p>
+                    <p>Artificial Intelligence, Machine Learning, Database Management, MS Office, Github</p>
                 </div>
                 <div class="skill-category">
                     <h3>Soft Skills</h3>
-                    <p>Project Management, Communication, Teamwork</p>
+                    <p>Project Management, Communication, Emotional Intelligence, Teamwork </p>
                 </div>
             </div>
         </section>
@@ -824,6 +900,8 @@
                     <li>Developed a multi-user web app with secure login, dashboards, and real-time service tracking
                     </li>
                     <li>Used Flask, Jinja, Bootstrap, and SQLite for full-stack functionality</li>
+                    <li>Deployed on Render and hosted on GitHub</li>
+
                 </ul>
             </div>
             <div class="project-item">
@@ -831,6 +909,7 @@
                 <ul>
                     <li>Conducted sales data analysis using Excel, Power BI, and SQL</li>
                     <li>Designed interactive dashboards and performed KPI-driven analytics for decision-making</li>
+                    <li>Optimized SQL queries for 100% data accuracy</li>
                 </ul>
             </div>
         </section>
@@ -838,7 +917,7 @@
         <section>
             <h2>Education</h2>
             <div class="education-item">
-                <div class="education-title">IIT Madras</div>
+                <div class="education-title">Indian Institute of Technology Madras (Chennai)</div>
                 <p>BS Data Science & Programming (CGPA: 8.78)</p>
                 <p>2022-2026</p>
             </div>
@@ -864,13 +943,13 @@
                     <p>🏅 5+ Academic Excellence Badges (IIT Madras)</p>
                 </div>
                 <div class="achievement-item">
-                    <p>🏅 Gold Medalist – Inter-District Debate & Quiz</p>
+                    <p>🏅 Gold Medalist – Inter-District Debate & Speech</p>
                 </div>
                 <div class="achievement-item">
                     <p>📖 Hobbies – Reading, singing, traveling, writing</p>
                 </div>
                 <div class="achievement-item">
-                    <p>🏕️ Scout Guide Certified (Leadership & Outdoor Skills)</p>
+                    <p>🏕️ Scout Guide Certified (Team work Skills)</p>
                 </div>
             </div>
         </section>
