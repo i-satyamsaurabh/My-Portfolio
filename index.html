@@ -18,8 +18,8 @@
             --success-color: #10b981;
             --warning-color: #f59e0b;
             --error-color: #ef4444;
-            --gradient-start: #60a5fa;
-            --gradient-end: #6398b0;
+            --gradient-start: #050505;
+            --gradient-end: #3b4fae;
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
@@ -66,6 +66,8 @@
             box-shadow: var(--shadow-lg);
             margin-bottom: 3rem;
             position: relative;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
             backdrop-filter: blur(10px);
         }
@@ -963,14 +965,15 @@
             }
 
             /* Improved tap targets */
-            a, button {
+            a,
+            button {
                 min-height: 44px;
                 min-width: 44px;
                 padding: 0.8rem;
             }
 
             /* Better spacing for stacked elements */
-            * + * {
+            *+* {
                 margin-top: 0.5rem;
             }
         }
