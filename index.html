@@ -809,6 +809,191 @@
                 border-radius: 2px;
             }
         }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+                padding-top: 4rem;
+            }
+
+            header {
+                padding: 1.5rem;
+                margin-top: 1rem;
+                border-radius: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+
+            .header-content p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                margin-top: 1rem;
+            }
+
+            .contact-info {
+                display: flex;
+                overflow-x: auto;
+                padding: 0.5rem 0;
+                margin: 1rem -0.5rem;
+                scrollbar-width: thin;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .contact-info span {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+                white-space: nowrap;
+                flex: 0 0 auto;
+                margin: 0 0.25rem;
+            }
+
+            .resume-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.95rem;
+                margin: 1rem 0;
+            }
+
+            section {
+                padding: 1.25rem;
+                margin-bottom: 1.25rem;
+                border-radius: 0.75rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .skills-grid {
+                gap: 1rem;
+            }
+
+            .skill-category {
+                padding: 1.25rem;
+            }
+
+            .skill-category h3 {
+                font-size: 1.1rem;
+            }
+
+            .skill-category p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            .experience-item,
+            .project-item {
+                padding: 1.25rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .experience-title,
+            .project-title {
+                font-size: 1.1rem;
+                line-height: 1.3;
+            }
+
+            .experience-period {
+                font-size: 0.85rem;
+                padding: 0.3rem 0.8rem;
+                margin: 0.5rem 0;
+            }
+
+            ul li {
+                font-size: 0.9rem;
+                padding-left: 1.5rem;
+                margin-bottom: 0.6rem;
+                line-height: 1.4;
+            }
+
+            .education-item {
+                padding: 1.25rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .education-title {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .education-item p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+
+            .achievements-grid {
+                gap: 1rem;
+            }
+
+            .achievement-item {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .languages-list div {
+                padding: 1.25rem;
+                font-size: 0.9rem;
+            }
+
+            /* Improved scrollbar styling */
+            ::-webkit-scrollbar {
+                height: 4px;
+                width: 4px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 2px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 2px;
+            }
+
+            /* Better touch interactions */
+            .contact-info,
+            .skills-grid,
+            .achievements-grid {
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Improved tap targets */
+            a, button {
+                min-height: 44px;
+                min-width: 44px;
+                padding: 0.8rem;
+            }
+
+            /* Better spacing for stacked elements */
+            * + * {
+                margin-top: 0.5rem;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 360px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .container {
+                padding: 0.75rem;
+            }
+
+            section {
+                padding: 1rem;
+            }
+
+            .contact-info span {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 
