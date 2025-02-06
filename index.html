@@ -999,306 +999,361 @@
         }
 
         /* Mobile-specific header styles */
-@media (max-width: 768px) {
-    header {
-        padding: 1.5rem;
-        margin: 0.5rem;
-        border-radius: 1rem;
-        min-height: auto;
-        background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
-    }
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem;
+                margin: 0.5rem;
+                border-radius: 1rem;
+                min-height: auto;
+                background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
+            }
 
-    .header-content {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+            .header-content {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
 
-    h1 {
-        font-size: 2rem;
-        line-height: 1.2;
-        margin-bottom: 0.5rem;
-        text-align: center;
-        background: linear-gradient(to right, #ffffff 0%, #e2e8f0 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+            h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-bottom: 0.5rem;
+                text-align: center;
+                background: linear-gradient(to right, #ffffff 0%, #e2e8f0 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
 
-    .contact-info {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        gap: 0.75rem;
-        padding: 0.5rem 0;
-        margin: 0;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        mask-image: linear-gradient(to right, transparent, black 10px, black 90%, transparent);
-    }
+            .contact-info {
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
+                gap: 0.75rem;
+                padding: 0.5rem 0;
+                margin: 0;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                mask-image: linear-gradient(to right, transparent, black 10px, black 90%, transparent);
+            }
 
-    .contact-info::-webkit-scrollbar {
-        display: none;
-    }
+            .contact-info::-webkit-scrollbar {
+                display: none;
+            }
 
-    .contact-info span {
-        padding: 0.5rem 1rem;
-        font-size: 0.875rem;
-        white-space: nowrap;
-        flex: 0 0 auto;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
+            .contact-info span {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+                white-space: nowrap;
+                flex: 0 0 auto;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(8px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 1.5rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
 
-    .contact-info span a {
-        color: gold;
-        text-decoration: none;
-    }
+            .contact-info span a {
+                color: gold;
+                text-decoration: none;
+            }
 
-    .resume-button-container {
-        margin: 1rem 0;
-    }
+            .resume-button-container {
+                margin: 1rem 0;
+            }
 
-    .resume-button {
-        width: 100%;
-        max-width: 200px;
-        padding: 0.75rem 1.5rem;
-        font-size: 0.875rem;
-        justify-content: center;
-        background: rgba(255, 215, 0, 0.1);
-        border: 1.5px solid gold;
-        border-radius: 1.5rem;
-        transition: all 0.2s ease;
-    }
+            .resume-button {
+                width: 100%;
+                max-width: 200px;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
+                justify-content: center;
+                background: rgba(255, 215, 0, 0.1);
+                border: 1.5px solid gold;
+                border-radius: 1.5rem;
+                transition: all 0.2s ease;
+            }
 
-    .resume-button:active {
-        transform: scale(0.98);
-    }
+            .resume-button:active {
+                transform: scale(0.98);
+            }
 
-    .header-content p {
-        font-size: 0.875rem;
-        line-height: 1.6;
-        color: #e2e8f0;
-        text-align: center;
-        margin: 0;
-        padding: 0 0.5rem;
-    }
+            .header-content p {
+                font-size: 0.875rem;
+                line-height: 1.6;
+                color: #e2e8f0;
+                text-align: center;
+                margin: 0;
+                padding: 0 0.5rem;
+            }
 
-    /* Better touch targets for mobile */
-    .contact-info span,
-    .resume-button {
-        min-height: 40px;
-    }
+            /* Better touch targets for mobile */
+            .contact-info span,
+            .resume-button {
+                min-height: 40px;
+            }
 
-    /* Improve tap feedback */
-    .contact-info span:active,
-    .resume-button:active {
-        opacity: 0.8;
-    }
-}
+            /* Improve tap feedback */
+            .contact-info span:active,
+            .resume-button:active {
+                opacity: 0.8;
+            }
+        }
 
-/* Extra small devices */
-@media (max-width: 360px) {
-    header {
-        padding: 1rem;
-        margin: 0.25rem;
-    }
+        /* Extra small devices */
+        @media (max-width: 360px) {
+            header {
+                padding: 1rem;
+                margin: 0.25rem;
+            }
 
-    h1 {
-        font-size: 1.75rem;
-    }
+            h1 {
+                font-size: 1.75rem;
+            }
 
-    .contact-info span {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8125rem;
-    }
+            .contact-info span {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8125rem;
+            }
 
-    .resume-button {
-        padding: 0.6rem 1.25rem;
-        font-size: 0.8125rem;
-    }
+            .resume-button {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.8125rem;
+            }
 
-    .header-content p {
-        font-size: 0.8125rem;
-        padding: 0;
-    }
-}
+            .header-content p {
+                font-size: 0.8125rem;
+                padding: 0;
+            }
+        }
+
         /* Mobile-specific header layout optimization */
-@media (max-width: 768px) {
-    /* Container adjustments */
-    .container {
-        padding: 0.5rem;
-    }
+        @media (max-width: 768px) {
 
-    /* Header and mobile nav adjustments */
-    header {
-        position: relative;
-        padding: 4rem 1rem 1.5rem;
-        margin: 0.5rem;
-        border-radius: 1.25rem;
-        background: linear-gradient(145deg, #1a1a1a 0%, #2d3748 100%);
-    }
+            /* Container adjustments */
+            .container {
+                padding: 0.5rem;
+            }
 
-    /* Mobile menu button styling */
-    .mobile-nav-toggle {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: 0.75rem;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        padding: 0.5rem;
-        z-index: 1000;
-    }
+            /* Header and mobile nav adjustments */
+            header {
+                position: relative;
+                padding: 4rem 1rem 1.5rem;
+                margin: 0.5rem;
+                border-radius: 1.25rem;
+                background: linear-gradient(145deg, #1a1a1a 0%, #2d3748 100%);
+            }
 
-    .mobile-nav-toggle span {
-        height: 2px;
-        margin: 0.25rem 0;
-        background-color: gold;
-        transition: transform 0.3s ease;
-    }
+            /* Mobile menu button styling */
+            .mobile-nav-toggle {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 0.75rem;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(8px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                padding: 0.5rem;
+                z-index: 1000;
+            }
 
-    /* Header content organization */
-    .header-content {
-        display: grid;
-        gap: 1rem;
-        text-align: center;
-    }
+            .mobile-nav-toggle span {
+                height: 2px;
+                margin: 0.25rem 0;
+                background-color: gold;
+                transition: transform 0.3s ease;
+            }
 
-    /* Name styling */
-    h1 {
-        font-size: 1.75rem;
-        line-height: 1.2;
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(to right, #ffffff, #ffd700);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-align: center;
-    }
+            /* Header content organization */
+            .header-content {
+                display: grid;
+                gap: 1rem;
+                text-align: center;
+            }
 
-    /* Contact info container */
-    .contact-info {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
-        padding: 0;
-        margin: 0.5rem 0;
-        overflow: visible;
-    }
+            /* Name styling */
+            h1 {
+                font-size: 1.75rem;
+                line-height: 1.2;
+                margin: 0;
+                padding: 0;
+                background: linear-gradient(to right, #ffffff, #ffd700);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-align: center;
+            }
 
-    /* Individual contact items */
-    .contact-info span {
-        padding: 0.6rem 0.75rem;
-        font-size: 0.8rem;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 0.75rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.35rem;
-        white-space: nowrap;
-        transition: transform 0.2s ease;
-    }
+            /* Contact info container */
+            .contact-info {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+                padding: 0;
+                margin: 0.5rem 0;
+                overflow: visible;
+            }
 
-    .contact-info span a {
-        color: gold;
-        text-decoration: none;
-        font-size: 0.8rem;
-    }
+            /* Individual contact items */
+            .contact-info span {
+                padding: 0.6rem 0.75rem;
+                font-size: 0.8rem;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 0.75rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.35rem;
+                white-space: nowrap;
+                transition: transform 0.2s ease;
+            }
 
-    /* Resume button adjustments */
-    .resume-button-container {
-        margin: 1rem 0 0.5rem;
-    }
+            .contact-info span a {
+                color: gold;
+                text-decoration: none;
+                font-size: 0.8rem;
+            }
 
-    .resume-button {
-        background: rgba(255, 215, 0, 0.1);
-        border: 1.5px solid gold;
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
-        border-radius: 0.75rem;
-        width: auto;
-        min-width: 160px;
-    }
+            /* Resume button adjustments */
+            .resume-button-container {
+                margin: 1rem 0 0.5rem;
+            }
 
-    /* Description text */
-    .header-content p {
-        font-size: 0.875rem;
-        line-height: 1.5;
-        color: #e2e8f0;
-        margin: 0;
-        padding: 0 0.5rem;
-    }
+            .resume-button {
+                background: rgba(255, 215, 0, 0.1);
+                border: 1.5px solid gold;
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+                border-radius: 0.75rem;
+                width: auto;
+                min-width: 160px;
+            }
 
-    /* Active states for better touch feedback */
-    .contact-info span:active {
-        transform: scale(0.95);
-        background: rgba(255, 255, 255, 0.12);
-    }
+            /* Description text */
+            .header-content p {
+                font-size: 0.875rem;
+                line-height: 1.5;
+                color: #e2e8f0;
+                margin: 0;
+                padding: 0 0.5rem;
+            }
 
-    .resume-button:active {
-        transform: scale(0.98);
-    }
-}
+            /* Active states for better touch feedback */
+            .contact-info span:active {
+                transform: scale(0.95);
+                background: rgba(255, 255, 255, 0.12);
+            }
 
-/* Extra small devices */
-@media (max-width: 360px) {
-    header {
-        padding: 3.5rem 0.75rem 1.25rem;
-    }
+            .resume-button:active {
+                transform: scale(0.98);
+            }
+        }
 
-    h1 {
-        font-size: 1.5rem;
-    }
+        /* Extra small devices */
+        @media (max-width: 360px) {
+            header {
+                padding: 3.5rem 0.75rem 1.25rem;
+            }
 
-    .contact-info {
-        grid-template-columns: 1fr;
-    }
+            h1 {
+                font-size: 1.5rem;
+            }
 
-    .contact-info span {
-        padding: 0.5rem;
-        font-size: 0.75rem;
-    }
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
 
-    .contact-info span a {
-        font-size: 0.75rem;
-    }
+            .contact-info span {
+                padding: 0.5rem;
+                font-size: 0.75rem;
+            }
 
-    .resume-button {
-        padding: 0.5rem 1.25rem;
-        font-size: 0.8rem;
-    }
+            .contact-info span a {
+                font-size: 0.75rem;
+            }
 
-    .header-content p {
-        font-size: 0.8rem;
-    }
-}
+            .resume-button {
+                padding: 0.5rem 1.25rem;
+                font-size: 0.8rem;
+            }
 
-/* Portrait phones */
-@media (max-width: 400px) and (max-height: 700px) {
-    header {
-        padding-top: 3rem;
-    }
+            .header-content p {
+                font-size: 0.8rem;
+            }
+        }
 
-    .header-content {
-        gap: 0.75rem;
-    }
+        /* Portrait phones */
+        @media (max-width: 400px) and (max-height: 700px) {
+            header {
+                padding-top: 3rem;
+            }
 
-    .contact-info span {
-        padding: 0.4rem 0.6rem;
-    }
-}
+            .header-content {
+                gap: 0.75rem;
+            }
+
+            .contact-info span {
+                padding: 0.4rem 0.6rem;
+            }
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid gold;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Update header content layout */
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 768px) {
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+                margin: 0 auto 1rem;
+                border-width: 2px;
+            }
+
+            .header-content {
+                padding-top: 0.5rem;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 360px) {
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+        }
     </style>
 </head>
 
@@ -1306,6 +1361,9 @@
     <div class="container">
         <header>
             <div class="header-content">
+                <div class="profile-photo">
+                    <img src="/satyam img.jpg" alt="Profile Photo">
+                </div>
                 <h1 id="about">Satyam Saurabh</h1>
                 <div class="contact-info">
                     <span style="color: gold;">📍 Muzaffarpur, Bihar, India</span>
