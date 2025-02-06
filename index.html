@@ -14,7 +14,7 @@
             --accent-color: #60a5fa;
             --text-color: #111827;
             --bg-light: #f8fafc;
-            --card-bg: #fffffff;
+            --card-bg: #ffffff;
             --success-color: #10b981;
             --warning-color: #f59e0b;
             --error-color: #ef4444;
@@ -35,7 +35,7 @@
         body {
             line-height: 1.7;
             color: var(--text-color);
-             background: linear-gradient(135deg, var(--bg-light) 0%, #1d0c47 100%);
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--card-bg) 100%);
             min-height: 100vh;
             font-size: 16px;
         }
@@ -1354,6 +1354,108 @@
                 height: 100px;
             }
         }
+
+        /* Mobile-specific dark mode styles */
+        @media (max-width: 768px) {
+            :root {
+                --text-color: #f3f4f6;
+                --bg-light: #1f2937;
+                --card-bg: #111827;
+                --gradient-start: #111827;
+                --gradient-end: #1f2937;
+            }
+
+            body {
+                background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+                color: var(--text-color);
+            }
+
+            header {
+                background: linear-gradient(145deg, #1a1a1a 0%, #2d3748 100%);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .skill-category,
+            .experience-item,
+            .project-item,
+            .education-item,
+            .achievement-item,
+            .languages-list div {
+                background: rgba(31, 41, 55, 0.5);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .contact-info span {
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                color: #f3f4f6;
+            }
+
+            .mobile-nav {
+                background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            }
+
+            .mobile-nav-links a {
+                color: #f3f4f6;
+            }
+
+            section {
+                background: #1f2937;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            h2 {
+                color: #60a5fa;
+            }
+
+            .experience-title,
+            .project-title,
+            .education-title {
+                color: #60a5fa;
+            }
+
+            .experience-period {
+                background: rgba(96, 165, 250, 0.1);
+                color: #93c5fd;
+            }
+
+            ul li::before {
+                color: #60a5fa;
+            }
+
+            .header-content p {
+                color: #e2e8f0;
+            }
+
+            /* Scrollbar styling for dark mode */
+            ::-webkit-scrollbar-track {
+                background: #1f2937;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #60a5fa;
+            }
+
+            /* Override any light mode transitions */
+            * {
+                transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            }
+        }
+
+        /* Ensure dark mode styles persist regardless of system preferences */
+        @media (max-width: 768px) and (prefers-color-scheme: light) {
+            :root {
+                --text-color: #f3f4f6;
+                --bg-light: #1f2937;
+                --card-bg: #111827;
+            }
+
+            /* Repeat the same dark mode styles to override system preferences */
+            body {
+                background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+                color: var(--text-color);
+            }
+        }
     </style>
 </head>
 
@@ -1362,7 +1464,7 @@
         <header>
             <div class="header-content">
                 <div class="profile-photo">
-                    <img src="satyam_img.jpg" alt="Profile Photo">
+                    <img src="/satyam img.jpg" alt="Profile Photo">
                 </div>
                 <h1 id="about">Satyam Saurabh</h1>
                 <div class="contact-info">
