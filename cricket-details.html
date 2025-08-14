@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T20 Cricket Score Predictor - Project Details</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #10b981;
+            /* Green theme */
+            --secondary-color: #059669;
+            /* Darker Green */
+            --accent-color: #34d399;
+            /* Lighter Green */
+            --text-color: #111827;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--card-bg) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-btn {
+            position: fixed;
+            /* Fixes the button to the viewport */
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            /* Ensures it stays on top of other content */
+
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--card-bg);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(79, 70, 229, 0.2);
+        }
+
+
+        .project-header {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 1.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .project-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .content-section h2 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(16, 185, 129, 0.1);
+            color: #059669;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .project-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
+            display: block;
+        }
+
+        /* --- NEW STYLES ADDED --- */
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);
+            filter: brightness(1.05);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* --- END OF NEW STYLES --- */
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .project-header {
+                padding: 2rem 1.5rem;
+            }
+
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .tech-stack {
+                gap: 0.5rem;
+            }
+
+            .tech-tag {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html#projects" class="back-btn">
+            ← Back to Portfolio
+        </a>
+
+        <div class="project-header">
+            <h1>T20 Cricket Score Predictor</h1>
+            <p>A Machine Learning model to forecast final scores in live T20 cricket matches.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Project Overview</h2>
+            <p>This project involves developing a sophisticated machine learning model to predict T20 cricket match
+                scores based on various match parameters. The model analyzes historical cricket data to provide accurate
+                score predictions, helping cricket enthusiasts and analysts make informed decisions.</p>
+
+            <div style="text-align: center;">
+                <a href="https://cricket-score-predictor-0c9c.onrender.com" target="_blank" class="cta-button">🏏 Try
+                    The Predictor
+                    (Please wait for a while to load...)
+                </a>
+            </div>
+
+            <img src="t20.jpeg" alt="T20 Cricket Score Predictor Screenshot" class="project-image">
+        </div>
+
+        <div class="content-section">
+            <h2>Technology Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">NumPy</span>
+                <span class="tech-tag">Matplotlib</span>
+                <span class="tech-tag">Seaborn</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">HTML/CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">Render</span>
+                <span class="tech-tag">Google Colab</span>
+                <span class="tech-tag">GitHub</span>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Key Project Features</h2>
+            <p>This project showcases a complete data science workflow, from raw data processing to a deployed,
+                interactive web application.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>📊 Advanced Data Pipeline</h3>
+                    <p>Collected, cleaned, and processed extensive historical T20 match data. Engineered
+                        cricket-specific features like run rates and contextual parameters for a rich dataset.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🧠 Intelligent Prediction Model</h3>
+                    <p>Benchmarked multiple algorithms (Random Forest, XGBoost) and selected the top performer. The
+                        final model accurately predicts scores based on live game state.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💻 Interactive Web Application</h3>
+                    <p>Built a user-friendly Flask application where anyone can input live match statistics (current
+                        score, overs, wickets) and receive an instant score prediction.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📈 Performance & Insights</h3>
+                    <p>Achieved high prediction accuracy with robust evaluation metrics (RMSE, R²). Visualized key model
+                        insights, feature importance, and performance analytics.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="content-section">
+            <h2>Machine Learning Implementation</h2>
+            <p><strong>Data Collection:</strong> Gathered comprehensive T20 cricket match data including team
+                statistics, player performances, venue information, and match conditions from multiple seasons.</p>
+
+            <p><strong>Feature Engineering:</strong> Created meaningful features such as current run rate, wickets lost,
+                powerplay performance, death overs statistics, and team strength indicators.</p>
+
+            <p><strong>Model Selection:</strong> Implemented and compared multiple algorithms including Random Forest,
+                Gradient Boosting, Linear Regression, and Support Vector Regression to find the best performing model.
+            </p>
+
+            <p><strong>Model Evaluation:</strong> Used cross-validation, RMSE, MAE, and R² score to evaluate model
+                performance and ensure reliable predictions.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Web Application Development</h2>
+            <p><strong>Backend:</strong> Developed using Flask framework to serve the machine learning model and handle
+                prediction requests. Implemented RESTful APIs for seamless data communication.</p>
+
+            <p><strong>Frontend:</strong> Created an intuitive user interface allowing users to input match parameters
+                such as current score, overs completed, wickets lost, and team information.</p>
+
+            <p><strong>Real-time Predictions:</strong> Integrated the trained model to provide instant score predictions
+                based on user inputs with confidence intervals.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Data Analysis Insights</h2>
+            <p><strong>Performance Metrics:</strong> Achieved 85% accuracy in score predictions with an average error
+                margin of ±15 runs.</p>
+
+            <p><strong>Key Factors:</strong> Identified that current run rate, wickets in hand, and venue
+                characteristics are the most significant factors affecting final scores.</p>
+
+            <p><strong>Model Optimization:</strong> Fine-tuned hyperparameters using grid search and cross-validation to
+                improve prediction accuracy.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Challenges & Solutions</h2>
+            <p><strong>Challenge:</strong> Handling missing data and inconsistent match records from different sources.
+            </p>
+            <p><strong>Solution:</strong> Implemented robust data cleaning pipelines and used statistical methods to
+                handle missing values appropriately.</p>
+
+            <p><strong>Challenge:</strong> Balancing model complexity with prediction accuracy and interpretability.</p>
+            <p><strong>Solution:</strong> Used ensemble methods and feature importance analysis to create an optimal
+                balance between accuracy and model interpretability.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Project Impact</h2>
+            <p>This project demonstrates advanced skills in machine learning, data science, and web development. It
+                showcases the ability to work with sports analytics, implement predictive models, and create
+                user-friendly applications for complex data science problems. The project has practical applications for
+                cricket analysts, fantasy sports platforms, and broadcasting companies.</p>
+        </div>
+    </div>
+</body>
+
+</html>

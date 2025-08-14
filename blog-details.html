@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Website - Project Details</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #8b5cf6;
+            /* Purple Theme */
+            --secondary-color: #7c3aed;
+            /* Darker Purple */
+            --accent-color: #a78bfa;
+            /* Lighter Purple */
+            --text-color: #111827;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--card-bg) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-btn {
+            position: fixed;
+            /* Fixes the button to the viewport */
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            /* Ensures it stays on top of other content */
+
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--card-bg);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(79, 70, 229, 0.2);
+        }
+
+
+        .project-header {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 1.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .project-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .content-section h2 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(139, 92, 246, 0.1);
+            color: #7c3aed;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .project-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
+            display: block;
+        }
+
+        /* --- NEW STYLES ADDED --- */
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(139, 92, 246, 0.4);
+            filter: brightness(1.05);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* --- END OF NEW STYLES --- */
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .project-header {
+                padding: 2rem 1.5rem;
+            }
+
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .tech-stack {
+                gap: 0.5rem;
+            }
+
+            .tech-tag {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html#projects" class="back-btn">
+            ← Back to Portfolio
+        </a>
+
+        <div class="project-header">
+            <h1>Blog Website</h1>
+            <p>A full-featured blogging platform with user authentication and community features</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Project Overview</h2>
+            <p>This comprehensive blogging platform provides a complete content management system with user
+                authentication, interactive commenting, and a modern, responsive design. The platform supports multiple
+                authors, content categorization, and community engagement features, making it suitable for both personal
+                and professional blogging needs.</p>
+
+            <div style="text-align: center;">
+                <a href="https://blogging-app-svmj.onrender.com" target="_blank" class="cta-button">✍️ View Live
+                    Site (Please wait for a while to load...)</a>
+            </div>
+
+            <img src="/pic1.png" alt="Blog Website Screenshot" class="project-image">
+        </div>
+
+        <div class="content-section">
+            <h2>Technology Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">GitHub</span>
+                <span class="tech-tag">HTML/CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Jinja2</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Render</span>
+                <span class="tech-tag">SQLAlchemy</span>
+                <span class="tech-tag">SQLite</span>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Key Features</h2>
+            <p>This platform was built from the ground up to include all the essential features of a modern, full-stack
+                web application for content creation and community interaction.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>✍️ Content Management</h3>
+                    <p>A complete CMS with a rich text editor for post creation, plus robust systems for categorization
+                        and tagging to organize content effectively.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>👥 User & Community Features</h3>
+                    <p>Secure user registration and authentication, interactive nested comments, user profiles, and
+                        social sharing to foster community engagement.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚙️ Admin & Discovery</h3>
+                    <p>Includes an admin panel for content moderation and powerful search functionality, allowing users
+                        to easily find posts and authors.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 Responsive & Secure</h3>
+                    <p>Designed to be fully responsive for a seamless experience on any device, and built with modern
+                        security practices like CSRF protection and password hashing.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Technical Architecture</h2>
+            <p><strong>Backend Development:</strong> Built using Flask framework with a modular architecture.
+                Implemented RESTful API endpoints for blog operations, user management, and comment handling. Used
+                SQLAlchemy ORM for database operations and relationship management.</p>
+            <p><strong>Database Design:</strong> Designed a normalized database schema with proper relationships between
+                users, posts, comments, and categories. Implemented foreign key constraints and indexing for optimal
+                performance.</p>
+            <p><strong>Authentication System:</strong> Implemented secure user authentication with password hashing,
+                session management, and role-based access control for different user types (readers, authors,
+                administrators).</p>
+            <p><strong>Frontend Development:</strong> Created a responsive user interface using Bootstrap framework with
+                custom CSS. Implemented dynamic content loading and interactive features using JavaScript and AJAX.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>User Experience Features</h2>
+            <p><strong>Content Creation:</strong> Integrated a rich text editor allowing authors to create formatted
+                blog posts with images, links, and multimedia content.</p>
+            <p><strong>Community Interaction:</strong> Developed a comprehensive comment system supporting nested
+                replies, user mentions, and real-time notifications.</p>
+            <p><strong>Content Discovery:</strong> Implemented search functionality, category filtering, and tag-based
+                navigation to help users discover relevant content.</p>
+            <p><strong>User Profiles:</strong> Created detailed user profile pages with author bio, post history, and
+                social media integration.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Security & Performance</h2>
+            <p><strong>Security Measures:</strong> Implemented CSRF protection, input validation, SQL injection
+                prevention, and secure password storage using industry-standard hashing algorithms.</p>
+            <p><strong>Performance Optimization:</strong> Optimized database queries, implemented caching strategies,
+                and used pagination for large content sets to ensure fast loading times.</p>
+            <p><strong>Data Validation:</strong> Comprehensive server-side and client-side validation to ensure data
+                integrity and prevent malicious inputs.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Deployment & Hosting</h2>
+            <p><strong>Cloud Deployment:</strong> Successfully deployed on Render platform with proper environment
+                configuration, database setup, and SSL certificate implementation.</p>
+            <p><strong>Version Control:</strong> Maintained comprehensive version control using Git and GitHub with
+                proper branching strategies and documentation.</p>
+            <p><strong>Continuous Integration:</strong> Set up automated deployment pipeline for seamless updates and
+                maintenance.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Challenges & Solutions</h2>
+            <p><strong>Challenge:</strong> Implementing a scalable comment system with nested replies and real-time
+                updates.</p>
+            <p><strong>Solution:</strong> Designed a recursive database structure and implemented AJAX-based updates for
+                seamless user interaction without page refreshes.</p>
+            <p><strong>Challenge:</strong> Ensuring responsive design across various devices and screen sizes.</p>
+            <p><strong>Solution:</strong> Used Bootstrap's grid system and implemented custom CSS media queries for
+                optimal viewing experience on all devices.</p>
+            <p><strong>Challenge:</strong> Managing user-generated content and preventing spam or inappropriate content.
+            </p>
+            <p><strong>Solution:</strong> Implemented content moderation tools, user reporting system, and automated
+                spam detection algorithms.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Project Impact</h2>
+            <p>This blogging platform demonstrates comprehensive full-stack development skills, including database
+                design, user authentication, content management, and community features. The project showcases the
+                ability to create scalable web applications with modern user experience principles, security best
+                practices, and deployment strategies suitable for production environments.</p>
+        </div>
+    </div>
+</body>
+
+</html>

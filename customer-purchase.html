@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Value Prediction - Project Details</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #4f46e5;
+            /* Indigo Theme */
+            --secondary-color: #4338ca;
+            /* Darker Indigo */
+            --accent-color: #6366f1;
+            /* Lighter Indigo */
+            --text-color: #111827;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--card-bg) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-btn {
+            position: fixed;
+            /* Fixes the button to the viewport */
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            /* Ensures it stays on top of other content */
+
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--card-bg);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(79, 70, 229, 0.2);
+        }
+
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 1.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .project-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .content-section h2 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(79, 70, 229, 0.2);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--secondary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .project-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
+            display: block;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(79, 70, 229, 0.4);
+            filter: brightness(1.05);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .project-header {
+                padding: 2rem 1.5rem;
+            }
+
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .tech-stack {
+                gap: 0.5rem;
+            }
+
+            .tech-tag {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html#projects" class="back-btn">
+            ← Back to Portfolio
+        </a>
+
+        <div class="project-header">
+            <h1>Customer Purchase Value Prediction</h1>
+            <p>A machine learning model to forecast future customer spending and identify high-value clients.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Project Overview</h2>
+            <p>This project uses historical transactional data to train a regression model that predicts the future
+                purchase value of customers. The goal is to provide businesses with actionable intelligence to optimize
+                marketing spend, personalize customer engagement, and implement effective retention strategies by
+                identifying and nurturing high-value customers.</p>
+
+            <div style="text-align: center;">
+                <a href="https://colab.research.google.com/#scrollTo=8LAHRd8jUqGc&fileId=https%3A//storage.googleapis.com/kaggle-colab-exported-notebooks/satyam2610saurabh/22f3001024-notebook-t22025.d4514e58-1b02-436a-bf23-f36a8da18007.ipynb%3FX-Goog-Algorithm%3DGOOG4-RSA-SHA256%26X-Goog-Credential%3Dgcp-kaggle-com%2540kaggle-161607.iam.gserviceaccount.com/20250814/auto/storage/goog4_request%26X-Goog-Date%3D20250814T160320Z%26X-Goog-Expires%3D259200%26X-Goog-SignedHeaders%3Dhost%26X-Goog-Signature%3D33596c494414571aede6956e1fe5b5fd746549930678509f018875800840c3868b17a7a15d0c8072fdd5d1a964ad1d75e80c9eeff26759b30cab72b679bde82fa705718235723c08ad5e06440fec562293679786e2868fae22d3d81f31dac3d6dac9122fce2c9ba0b085b86d0bd285157b91ee6dfd8237f02f5d70011dcf8605d16c309fd2380cb0c94c1c6ef477625f5d9dd085ad8a154b1bd698deac92f527dde6330d791fdd08c30f608d83891a69dc28cf676a8329c40e15bafc7dffeda9078b980c88f5c0cf47b570517d2680e9b757f5f4cff57fa745c3e4037a2b63d7f81b2550bd8f02df064dcc9969b3d9587f90264c5b9ad26bc032dd0eec44516a"
+                    target="_blank" class="cta-button">📈 View Analysis Notebook</a>
+            </div>
+
+            <img src="/customer-purchase.jpeg" alt="Customer Value Prediction Dashboard" class="project-image">
+        </div>
+
+        <div class="content-section">
+            <h2>Technology Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">NumPy</span>
+                <span class="tech-tag">Matplotlib</span>
+                <span class="tech-tag">Seaborn</span>
+                <span class="tech-tag">Jupyter Notebook</span>
+                <span class="tech-tag">XGBoost</span>
+                <span class="tech-tag">LightGBM</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">Streamlit</span>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Project Highlights</h2>
+            <p>This project demonstrates an end-to-end machine learning workflow, from data exploration and feature
+                engineering to model deployment and interpretation.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>⚙️ Feature Engineering</h3>
+                    <p>Developed powerful, business-relevant features from raw transactional data, including RFM metrics
+                        (Recency, Frequency, Monetary) to capture customer behavior.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🧠 Predictive Modeling</h3>
+                    <p>Trained and evaluated multiple regression algorithms (e.g., XGBoost, Random Forest) to accurately
+                        predict future customer spending, validated with robust metrics like RMSE and R².</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Customer Segmentation</h3>
+                    <p>Utilized model predictions to segment customers into actionable tiers (e.g., High-Value,
+                        At-Risk), enabling targeted marketing campaigns and personalized offers.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📈 Data-Driven Insights</h3>
+                    <p>Provided clear visualizations and interpreted model results to identify the key drivers of
+                        customer value, delivering actionable insights for business stakeholders.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Machine Learning Workflow</h2>
+            <p><strong>Data Preprocessing:</strong> Loaded and cleaned large transactional datasets, handling missing
+                values, and converting data types to prepare for analysis.</p>
+            <p><strong>Exploratory Data Analysis (EDA):</strong> Conducted deep EDA to understand distributions,
+                identify correlations, and uncover initial patterns in customer purchasing behavior using Matplotlib and
+                Seaborn.</p>
+            <p><strong>Model Training & Selection:</strong> Systematically trained several regression models, fine-tuned
+                hyperparameters using Grid Search, and selected the best-performing model based on cross-validated
+                performance.</p>
+            <p><strong>Evaluation:</strong> Assessed the final model's accuracy on a held-out test set, analyzing its
+                predictions and residual errors to ensure reliability and business utility.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Business Impact & Application</h2>
+            <p>The insights from this model can directly inform critical business strategies:</p>
+            <ul>
+                <li><strong>Marketing Budget Allocation:</strong> Focus advertising spend on acquiring customers with a
+                    high predicted lifetime value.</li>
+                <li><strong>Personalization:</strong> Offer exclusive deals and early access to high-value customers to
+                    increase loyalty.</li>
+                <li><strong>Customer Retention:</strong> Proactively engage with "at-risk" or mid-tier customers to
+                    prevent churn and encourage repeat purchases.</li>
+                <li><strong>Inventory Management:</strong> Forecast demand for products popular among high-spending
+                    customer segments.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

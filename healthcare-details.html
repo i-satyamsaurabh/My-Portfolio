@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Application - Project Details</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #1d4ed8;
+            --accent-color: #60a5fa;
+            --text-color: #111827;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--card-bg) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-btn {
+            position: fixed;
+            /* Fixes the button to the viewport */
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            /* Ensures it stays on top of other content */
+
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--card-bg);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(79, 70, 229, 0.2);
+        }
+
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 1.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .project-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .project-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .project-header {
+                padding: 2rem 1.5rem;
+            }
+
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .tech-stack {
+                gap: 0.5rem;
+            }
+
+            .tech-tag {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .feature-card ul {
+            list-style-type: none;
+            margin-top: 1rem;
+            padding-left: 0.5rem;
+        }
+
+        .feature-card li {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-card li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            top: -2px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+            filter: brightness(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html#projects" class="back-btn">
+            ← Back to Portfolio
+        </a>
+
+        <div class="project-header">
+            <h1>Healthcare Application</h1>
+            <p>A comprehensive multi-user healthcare management system</p>
+
+
+        </div>
+
+        <div class="content-section">
+            <h2>Project Overview</h2>
+            <p>This healthcare application was developed to streamline healthcare service management with secure user
+                authentication, real-time tracking, and comprehensive dashboards. The system supports multiple user
+                roles and provides a seamless experience for both patients and healthcare providers.</p>
+            <div style="text-align: center;">
+                <a href="https://medicare-app-gess.onrender.com" target="_blank" class="cta-button">🏏 Try
+                    The Predictor
+                    (Please wait for a while to load...)
+                </a>
+            </div>
+
+            <img src="/pic4.png" alt="Healthcare Application Screenshot" class="project-image">
+        </div>
+
+        <div class="content-section">
+            <h2>Technology Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">AJAX</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">Flask-Login</span>
+                <span class="tech-tag">Git</span>
+                <span class="tech-tag">GitHub</span>
+                <span class="tech-tag">HTML/CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Jinja2</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Postman</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Render</span>
+                <span class="tech-tag">SQLite</span>
+            </div>
+        </div>
+
+
+        <div class="content-section">
+            <h2>Key Platform Features</h2>
+            <p>This Telehealth platform is engineered to provide a seamless, secure, and efficient healthcare experience
+                for patients, doctors, and administrators.</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>👨‍⚕️ Tailored Multi-Role Dashboards</h3>
+                    <p>A unified platform that provides a unique, role-specific experience for each user type.</p>
+                    <ul>
+                        <li><strong>Patient Portal:</strong> Manage appointments and view medical history.</li>
+                        <li><strong>Clinician Workspace:</strong> Manage schedules and conduct consultations.</li>
+                        <li><strong>Admin Panel:</strong> Oversee platform operations and user accounts.</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🗓️ Dynamic Scheduling & Management</h3>
+                    <p>A real-time system designed to eliminate scheduling conflicts and reduce no-shows.</p>
+                    <ul>
+                        <li><strong>Intuitive Booking:</strong> Patients easily find and book available slots.</li>
+                        <li><strong>Real-Time Sync:</strong> Doctor availability is always up-to-date.</li>
+                        <li><strong>Automated Notifications:</strong> Email/SMS reminders reduce no-shows.</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🔒 Secure Clinical Management</h3>
+                    <p>Built with a security-first mindset to protect sensitive health information.</p>
+                    <ul>
+                        <li><strong>Digital Health Records:</strong> Secure repository for all patient data.</li>
+                        <li><strong>E-Prescription Workflow:</strong> Securely generate and track prescriptions.</li>
+                        <li><strong>End-to-End Encryption:</strong> All data is encrypted in transit and at rest.</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>📱 Fully Responsive & Accessible</h3>
+                    <p>Ensures a consistent and high-quality experience on any device, from desktops to smartphones.</p>
+                    <ul>
+                        <li><strong>Mobile-Friendly Interface:</strong> Optimized for mobile devices.</li>
+                        <li><strong>Accessible Design:</strong> Ensured accessibility for users with disabilities.</li>
+                        <li><strong>Cross-Browser Compatibility:</strong> Works seamlessly across all major browsers.
+                        </li>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Technical Implementation</h2>
+            <p><strong>Backend Development:</strong> Built using Flask framework with Python, implementing RESTful API
+                endpoints for seamless data communication. Used SQLite for database management with proper schema design
+                for user roles, appointments, and medical records.</p>
+
+            <p><strong>Frontend Development:</strong> Utilized Jinja2 templating engine with Bootstrap for responsive UI
+                components. Implemented dynamic content rendering and interactive elements using JavaScript.</p>
+
+            <p><strong>Security Features:</strong> Implemented secure password hashing, session management, and
+                role-based access control to ensure data privacy and system security.</p>
+
+            <p><strong>Deployment:</strong> Successfully deployed on Render platform with proper environment
+                configuration and database setup. The application is hosted on GitHub for version control and
+                collaboration.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Challenges & Solutions</h2>
+            <p><strong>Challenge:</strong> Managing complex user roles and permissions across different dashboard views.
+            </p>
+            <p><strong>Solution:</strong> Implemented a robust role-based access control system with middleware to
+                handle authentication and authorization seamlessly.</p>
+
+            <p><strong>Challenge:</strong> Real-time tracking of healthcare services and appointments.</p>
+            <p><strong>Solution:</strong> Developed an efficient database schema with proper indexing and implemented
+                AJAX calls for real-time updates without page refreshes.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Project Impact</h2>
+            <p>This healthcare application demonstrates proficiency in full-stack web development, database design, and
+                user experience optimization. The project showcases the ability to handle complex business logic,
+                implement security best practices, and create scalable web applications suitable for real-world
+                healthcare environments.</p>
+        </div>
+    </div>
+</body>
+
+</html>

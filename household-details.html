@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Household Services Hub - Project Details</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #0d9488;
+            /* Teal Theme */
+            --secondary-color: #0f766e;
+            /* Darker Teal */
+            --accent-color: #2dd4bf;
+            /* Lighter Teal */
+            --text-color: #111827;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--card-bg) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-btn {
+            position: fixed;
+            /* Fixes the button to the viewport */
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            /* Ensures it stays on top of other content */
+
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--card-bg);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(79, 70, 229, 0.2);
+        }
+
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 1.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .project-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .content-section h2 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(13, 148, 136, 0.2);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(13, 148, 136, 0.1);
+            color: var(--secondary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .project-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
+            display: block;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(13, 148, 136, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(13, 148, 136, 0.4);
+            filter: brightness(1.05);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .project-header {
+                padding: 2rem 1.5rem;
+            }
+
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .tech-stack {
+                gap: 0.5rem;
+            }
+
+            .tech-tag {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html#projects" class="back-btn">
+            ← Back to Portfolio
+        </a>
+
+        <div class="project-header">
+            <h1>Household Services Hub</h1>
+            <p>A multi-user Flask application connecting customers with skilled service professionals.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Project Overview</h2>
+            <p><strong>Household Services Hub</strong> is a full-stack web application designed to bridge the gap
+                between customers seeking household help and professionals offering their services. The application
+                supports three distinct user roles—<strong>Admin</strong>, <strong>Professional</strong>, and
+                <strong>Customer</strong>—each with
+                a dedicated dashboard and functionalities tailored to their needs.
+            </p>
+
+            <div style="text-align: center;">
+                <a href="https://household-application.onrender.com" target="_blank" class="cta-button">🛠️ View Live
+                    Site (Please wait a moment for the app to load)</a>
+            </div>
+
+            <img src="/household.jpeg" alt="Household Services Hub Screenshot" class="project-image">
+        </div>
+
+        <div class="content-section">
+            <h2>Technology Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">Flask-SQLAlchemy</span>
+                <span class="tech-tag">SQLite</span>
+                <span class="tech-tag">Jinja2</span>
+                <span class="tech-tag">Bootstrap 5</span>
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">ERAlchemy</span>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Role-Based Features</h2>
+            <p>The application is built with a feature-rich, role-based access control system to provide a tailored
+                experience for every user.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>👑 Admin Portal</h3>
+                    <p>A powerful dashboard to manage the platform. Admins can oversee user activity, manage service
+                        categories, and approve/reject new professional registrations.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🛠️ Professional Dashboard</h3>
+                    <p>Professionals can create a detailed profile, list their services with custom pricing, manage
+                        incoming service requests, and track their job history and earnings.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>👤 Customer Experience</h3>
+                    <p>Customers can easily sign up, search for services with filters, send requests to professionals,
+                        and track the status of their jobs from "Pending" to "Completed."</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏗️ System Architecture</h3>
+                    <p>Built on a modular MVC-inspired architecture using Flask. Features a responsive frontend with
+                        Bootstrap and a well-defined database schema designed with ERAlchemy.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Technical Implementation</h2>
+            <p><strong>Backend:</strong> The core logic is handled by Flask, managing routes, request handling, and
+                business logic. Flask-SQLAlchemy is used as the ORM to interact with the SQLite database, mapping Python
+                objects to database tables.</p>
+            <p><strong>Frontend:</strong> The user interface is built with HTML5, CSS3, and Bootstrap 5, ensuring a
+                fully responsive design. Jinja2 is used as the templating engine to dynamically render data from the
+                backend into the frontend pages.</p>
+            <p><strong>Database Design:</strong> The database schema was carefully designed and visualized using
+                ERAlchemy to map the relationships between Users, Roles, Services, and Requests, ensuring data integrity
+                and efficient queries.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Project Context & Impact</h2>
+            <p>This project was developed as part of the <strong></strong>Modern Application Development I
+                (MAD1)</strong> course at the
+                <strong>Indian Institute of Technology, Madras</strong>. It serves as a comprehensive demonstration of
+                full-stack
+                development principles, including robust database modeling, secure back-end logic, and user-centric
+                front-end design. The application's architecture is built to be scalable and maintainable, showcasing
+                skills relevant for real-world application development.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
