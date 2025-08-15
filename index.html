@@ -8,6 +8,179 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            line-height: 1.6;
+            /* Added responsive line height */
+            overflow-x: hidden;
+        }
+
+        .container {
+            /* Made container responsive with max-width and padding */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            /* Added responsive padding */
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .header-content {
+            /* Added responsive spacing */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-photo {
+            /* Made profile photo responsive */
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid gold;
+            margin: 0 auto;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            /* Made heading responsive */
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .contact-info {
+            /* Made contact info responsive with flexbox */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .contact-info span {
+            /* Added responsive styling for contact items */
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .resume-button-container {
+            margin: 20px 0;
+        }
+
+        .resume-button {
+            /* Made resume button responsive */
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, gold, #ffd700);
+            color: #333;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resume-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .header-content p {
+            /* Made description text responsive */
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 20px auto 0;
+            text-align: left;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Added mobile-specific styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            header {
+                padding: 20px 0;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .contact-info span {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .header-content p {
+                padding: 15px;
+                text-align: justify;
+            }
+        }
+
+        /* Added extra small mobile styles */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .resume-button {
+                padding: 10px 20px;
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+
+            .header-content p {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+        }
+
         :root {
             --primary-color: #3b82f6;
             --secondary-color: #1d4ed8;
@@ -23,13 +196,6 @@
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         body {
@@ -596,8 +762,6 @@
         }
 
         .profile-photo img {
-            width: clamp(120px, 20vw, 200px);
-            height: clamp(120px, 20vw, 200px);
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid gold;
@@ -1620,7 +1784,6 @@
         .timeline-item:nth-child(even) .experience-card {
             margin-left: auto;
             margin-right: 0;
-            text-align: right;
         }
 
         .timeline-dot {
