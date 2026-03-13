@@ -389,64 +389,128 @@ nav.scrolled{
 @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
 /* ══════════════════════════════════════
-   QUICK CONNECT FORM
+   SEND MESSAGE BUTTON (hero contacts)
 ══════════════════════════════════════ */
-.qc-wrap{
-  margin-top:2.75rem;
-  padding-top:2.5rem;
-  border-top:1px solid var(--border);
+.hc-msg-btn{
+  display:flex;align-items:center;gap:.75rem;
+  font-family:var(--font-mono);font-size:.72rem;font-weight:700;
+  color:var(--ink);
+  background:var(--lime);
+  border:none;
+  border-radius:8px;
+  padding:.7rem 1.1rem;
+  margin-top:.5rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  transition:all .25s;
+  width:100%;
+  justify-content:space-between;
+}
+
+.hc-msg-btn:hover{
+  background:var(--lime2);
+  transform:translateY(-1px);
+  box-shadow:0 4px 18px rgba(203,255,77,.3);
+}
+
+.hc-msg-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--ink);flex-shrink:0;
+  animation:blink 2s ease-in-out infinite;
+}
+
+.hc-msg-arrow{font-size:.9rem;transition:transform .2s;}
+.hc-msg-btn:hover .hc-msg-arrow{transform:translateX(4px);}
+
+/* ══════════════════════════════════════
+   CONTACT MODAL
+══════════════════════════════════════ */
+.modal-backdrop{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(8px);
+  z-index:99990;
+  display:flex;align-items:center;justify-content:center;
+  padding:1.5rem;
   opacity:0;
-  animation:rise .7s ease 1.4s forwards;
+  pointer-events:none;
+  transition:opacity .3s ease;
 }
 
-.qc-header{
-  display:flex;align-items:center;gap:.65rem;
-  margin-bottom:1.4rem;
+.modal-backdrop.open{
+  opacity:1;
+  pointer-events:all;
 }
 
-.qc-dot{
-  width:6px;height:6px;border-radius:50%;
+.modal-box{
+  background:var(--ink2);
+  border:1px solid rgba(203,255,77,.18);
+  border-radius:16px;
+  width:100%;max-width:560px;
+  padding:2rem 2.25rem 2rem;
+  position:relative;
+  transform:translateY(20px) scale(.97);
+  transition:transform .35s cubic-bezier(.76,0,.24,1), opacity .3s ease;
+  opacity:0;
+  box-shadow:0 24px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(203,255,77,.06);
+}
+
+.modal-backdrop.open .modal-box{
+  transform:translateY(0) scale(1);
+  opacity:1;
+}
+
+/* Top lime shimmer line */
+.modal-box::before{
+  content:'';
+  position:absolute;top:0;left:2rem;right:2rem;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(203,255,77,.45), transparent);
+  border-radius:1px;
+}
+
+.modal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:1.6rem;
+}
+
+.modal-title-row{
+  display:flex;align-items:center;gap:.6rem;
+}
+
+.modal-dot{
+  width:7px;height:7px;border-radius:50%;
   background:var(--lime);flex-shrink:0;
   animation:blink 2s ease-in-out infinite;
 }
 
-.qc-label{
-  font-family:var(--font-mono);
-  font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--muted);
+.modal-title{
+  font-family:var(--font-display);
+  font-size:1.35rem;font-weight:700;
+  color:var(--text);letter-spacing:-.03em;
 }
 
-.qc-card{
-  background:rgba(255,255,255,.025);
+.modal-close{
+  width:32px;height:32px;
+  border-radius:8px;
+  background:rgba(255,255,255,.05);
   border:1px solid var(--border);
-  border-radius:14px;
-  padding:1.75rem 2rem;
-  max-width:860px;
-  position:relative;
-  overflow:hidden;
-  transition:border-color .3s;
+  color:var(--muted);
+  font-size:.85rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+  flex-shrink:0;
 }
 
-.qc-card:focus-within{
-  border-color:rgba(203,255,77,.25);
-  box-shadow:0 0 0 1px rgba(203,255,77,.08);
+.modal-close:hover{
+  background:rgba(248,113,113,.1);
+  border-color:rgba(248,113,113,.3);
+  color:#f87171;
 }
 
-/* Subtle lime shimmer top edge */
-.qc-card::before{
-  content:'';
-  position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg, transparent, rgba(203,255,77,.35), transparent);
-  opacity:0;
-  transition:opacity .4s;
-}
-.qc-card:focus-within::before{opacity:1;}
-
-.qc-fields{
+.modal-fields{
   display:grid;
-  grid-template-columns:1fr 1fr 1fr auto;
+  grid-template-columns:1fr 1fr;
   gap:.75rem;
-  align-items:end;
 }
 
 .qc-field{
@@ -479,14 +543,9 @@ nav.scrolled{
   background:rgba(203,255,77,.03);
 }
 
-/* Message field spans full width */
-.qc-field-msg{
-  grid-column:1 / -1;
-}
-
 .qc-input.msg{
   resize:none;
-  min-height:68px;
+  min-height:90px;
   line-height:1.55;
   font-family:var(--font-body);
 }
@@ -504,22 +563,19 @@ nav.scrolled{
   white-space:nowrap;
   transition:all .25s;
   display:flex;align-items:center;gap:.5rem;
-  align-self:end;
-  height:40px;
 }
 
 .qc-send:hover:not(:disabled){
   background:var(--lime2);
   transform:translateY(-1px);
-  box-shadow:0 4px 16px rgba(203,255,77,.25);
+  box-shadow:0 4px 16px rgba(203,255,77,.3);
 }
 
 .qc-send:disabled{opacity:.55;cursor:not-allowed;}
-
 .qc-send .send-ico{font-size:.85rem;transition:transform .2s;}
 .qc-send:hover:not(:disabled) .send-ico{transform:translateX(3px);}
 
-/* Status messages */
+/* Status */
 .qc-status{
   margin-top:.85rem;
   font-family:var(--font-mono);
@@ -1218,9 +1274,8 @@ footer{
   footer{flex-direction:column;gap:1.5rem;align-items:flex-start;}
   .footer-right{align-items:flex-start;}
 
-  /* QC responsive */
-  .qc-fields{grid-template-columns:1fr 1fr;}
-  .qc-send{width:100%;}
+  /* Modal responsive */
+  .modal-fields{grid-template-columns:1fr 1fr;}
 }
 
 @media(max-width:600px){
@@ -1234,9 +1289,9 @@ footer{
   .jcard:nth-last-child(-n+1){border-bottom:none;}
   .jcard:nth-last-child(-n+4){border-bottom:1px solid var(--border);}
 
-  /* QC mobile */
-  .qc-fields{grid-template-columns:1fr;}
-  .qc-card{padding:1.25rem;}
+  /* Modal mobile */
+  .modal-fields{grid-template-columns:1fr;}
+  .modal-box{padding:1.5rem 1.25rem;}
 }
 </style>
 </head>
@@ -1325,6 +1380,11 @@ footer{
       <a href="https://drive.google.com/file/d/1jQyBieU3tPhVPSMqV1qc7b-gzCiIFi1Z/view?usp=sharing" target="_blank" class="hc-link">
         View Resume PDF <span class="arrow">↗</span>
       </a>
+      <button class="hc-msg-btn" id="open-modal" type="button">
+        <span class="hc-msg-dot"></span>
+        Send a Message
+        <span class="hc-msg-arrow">→</span>
+      </button>
     </div>
 
     <div class="hero-photo-wrap">
@@ -1336,61 +1396,60 @@ footer{
     </div>
   </div>
 
-  <!-- ═══ QUICK CONNECT ═══
-       Powered by Formspree — free email-to-inbox service.
-       SETUP (one-time, 2 minutes):
-         1. Go to https://formspree.io and sign up with satyam2610saurabh@gmail.com
-         2. Click "New Form" → name it anything → copy the form endpoint URL
-         3. Replace  YOUR_FORM_ID  below with your actual form ID  (e.g. xaabbccdd)
-  -->
-  <div class="qc-wrap">
-    <div class="qc-header">
-      <span class="qc-dot"></span>
-      <span class="qc-label">Send a Message</span>
-    </div>
-    <div class="qc-card">
-      <form id="qc-form" novalidate>
-        <div class="qc-fields">
-
-          <div class="qc-field">
-            <label for="qc-name">Your Name</label>
-            <input class="qc-input" type="text" id="qc-name" name="name"
-                   placeholder="e.g. Priya Sharma" autocomplete="name" required>
-          </div>
-
-          <div class="qc-field">
-            <label for="qc-email">Email Address</label>
-            <input class="qc-input" type="email" id="qc-email" name="email"
-                   placeholder="you@example.com" autocomplete="email" required>
-          </div>
-
-          <div class="qc-field">
-            <label for="qc-subject">Subject</label>
-            <input class="qc-input" type="text" id="qc-subject" name="subject"
-                   placeholder="Opportunity / Collaboration / Hi!">
-          </div>
-
-          <!-- Message — full width row -->
-          <div class="qc-field qc-field-msg" style="grid-column:1/-1">
-            <label for="qc-msg">Message</label>
-            <textarea class="qc-input msg" id="qc-msg" name="message"
-                      placeholder="What's on your mind?" rows="3" required></textarea>
-          </div>
-
-          <!-- Send button — right-aligned in its own cell -->
-          <div style="grid-column:1/-1;display:flex;justify-content:flex-end;">
-            <button class="qc-send" type="submit" id="qc-btn">
-              <span class="send-ico">→</span> Send Message
-            </button>
-          </div>
-
-        </div>
-      </form>
-      <div class="qc-status" id="qc-status"></div>
-    </div>
-  </div>
 
 </section>
+
+<!-- ═══ CONTACT MODAL ═══ -->
+<div id="contact-modal" class="modal-backdrop" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+
+    <div class="modal-header">
+      <div class="modal-title-row">
+        <span class="modal-dot"></span>
+        <span class="modal-title" id="modal-title">Send a Message</span>
+      </div>
+      <button class="modal-close" id="close-modal" aria-label="Close">✕</button>
+    </div>
+
+    <form id="qc-form" novalidate>
+      <div class="modal-fields">
+
+        <div class="qc-field">
+          <label for="qc-name">Your Name</label>
+          <input class="qc-input" type="text" id="qc-name" name="name"
+                 placeholder="e.g. Priya Sharma" autocomplete="name" required>
+        </div>
+
+        <div class="qc-field">
+          <label for="qc-email">Email Address</label>
+          <input class="qc-input" type="email" id="qc-email" name="email"
+                 placeholder="you@example.com" autocomplete="email" required>
+        </div>
+
+        <div class="qc-field" style="grid-column:1/-1">
+          <label for="qc-subject">Subject</label>
+          <input class="qc-input" type="text" id="qc-subject" name="subject"
+                 placeholder="Opportunity / Collaboration / Hi!">
+        </div>
+
+        <div class="qc-field" style="grid-column:1/-1">
+          <label for="qc-msg">Message</label>
+          <textarea class="qc-input msg" id="qc-msg" name="message"
+                    placeholder="What's on your mind?" rows="4" required></textarea>
+        </div>
+
+        <div style="grid-column:1/-1;display:flex;justify-content:flex-end;">
+          <button class="qc-send" type="submit" id="qc-btn">
+            <span class="send-ico">→</span> Send Message
+          </button>
+        </div>
+
+      </div>
+    </form>
+
+    <div class="qc-status" id="qc-status"></div>
+  </div>
+</div>
 
 <!-- ═══ STATS ═══ -->
 <div class="stats-strip">
@@ -2141,14 +2200,42 @@ const statsIO = new IntersectionObserver(entries => {
 const strip = document.querySelector('.stats-strip');
 if (strip) statsIO.observe(strip);
 
-/* ════════════════════════════════════
-   QUICK CONNECT — Formspree AJAX
-   ════════════════════════════════════
-   SETUP:
-   1. Sign up at https://formspree.io (free)
-   2. Create a new form → copy your Form ID (looks like: xaabbccdd)
-   3. Replace YOUR_FORM_ID below with your actual ID
-*/
+/* ════════════════════════════════
+   MODAL — open / close
+════════════════════════════════ */
+const modal     = document.getElementById('contact-modal');
+const openBtn   = document.getElementById('open-modal');
+const closeBtn  = document.getElementById('close-modal');
+
+function openModal() {
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('qc-name').focus(), 50);
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+openBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+
+// Close on backdrop click
+modal.addEventListener('click', e => {
+  if (e.target === modal) closeModal();
+});
+
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+});
+
+/* ════════════════════════════════
+   FORM — Formspree AJAX
+════════════════════════════════ */
 const FORMSPREE_ID = 'mlgpnyej';
 
 const qcForm   = document.getElementById('qc-form');
@@ -2158,7 +2245,6 @@ const qcStatus = document.getElementById('qc-status');
 qcForm.addEventListener('submit', async function(e) {
   e.preventDefault();
 
-  // Basic validation
   const name  = document.getElementById('qc-name').value.trim();
   const email = document.getElementById('qc-email').value.trim();
   const msg   = document.getElementById('qc-msg').value.trim();
@@ -2172,9 +2258,8 @@ qcForm.addEventListener('submit', async function(e) {
     return;
   }
 
-  // Loading state
   qcBtn.disabled = true;
-  qcBtn.innerHTML = '<span style="display:inline-block;animation:spin .6s linear infinite">◌</span> Sending…';
+  qcBtn.innerHTML = '<span style="display:inline-block;animation:spin-btn .6s linear infinite">◌</span> Sending…';
 
   try {
     const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
@@ -2191,6 +2276,7 @@ qcForm.addEventListener('submit', async function(e) {
     if (res.ok) {
       showStatus('success', '✓ Message sent — Satyam will get back to you shortly!');
       qcForm.reset();
+      setTimeout(closeModal, 3200);
     } else {
       const data = await res.json();
       const errMsg = data?.errors?.map(e => e.message).join(', ') || 'Something went wrong.';
@@ -2207,14 +2293,14 @@ qcForm.addEventListener('submit', async function(e) {
 function showStatus(type, text) {
   qcStatus.textContent = text;
   qcStatus.className = 'qc-status show ' + type;
-  if (type === 'success') {
-    setTimeout(() => { qcStatus.className = 'qc-status'; }, 6000);
+  if (type === 'error') {
+    setTimeout(() => { qcStatus.className = 'qc-status'; }, 5000);
   }
 }
 </script>
 
 <style>
-@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spin-btn { to { transform: rotate(360deg); } }
 </style>
 </body>
 </html>
