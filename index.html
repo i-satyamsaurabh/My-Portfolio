@@ -637,6 +637,31 @@
             box-shadow: var(--shadow-md);
         }
 
+        .github-btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: #24292e;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            transition: all 0.3s ease;
+        }
+
+        .github-btn:hover {
+            background: #444d56;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
         .project-image {
             width: 370px;
             height: fit-content;
@@ -2072,8 +2097,8 @@
                 </div>
                 <div class="skill-category">
                     <h3>Applied & Professional Skills</h3>
-                    <p>Predictive Analytics, Machine Learning, Flask (RestAPI), HTML, CSS, JavaScript,
-                        Project Management, Team Collaboration, Data Storytelling</p>
+                    <p>Predictive Analytics, Machine Learning, Flask (RestAPI), Vue.js, Redis, Celery,
+                        HTML, CSS, JavaScript, Linux, Project Management, Team Collaboration</p>
                 </div>
                 <div class="skill-category">
                     <h3>Soft Skills</h3>
@@ -2084,113 +2109,161 @@
 
         <section id="projects">
             <h2 id="projects">Projects</h2>
+
+            <!-- Hospital Management System (MAD-2) -->
             <div class="project-item">
                 <div class="project-content">
-                    <div class="project-title">Healthcare Application</div>
-                    <div class="experience-period">January 2025 - February 2025</div>
+                    <div class="project-title">Hospital Management System</div>
+                    <div class="experience-period">Jan 2025 – Feb 2025 · Full-Stack Web App</div>
                     <ul>
-                        <li>Developed a multi-user web app with secure login, dashboards, and real-time service tracking
-                        </li>
-                        <li>Used Flask, Jinja, Python, Bootstrap, and SQLite for full-stack functionality</li>
-                        <li>Deployed on Render and hosted on GitHub</li>
+                        <li>Built a full-stack multi-role HMS (Admin, Doctor, Patient) using Flask, Vue.js, SQLite, Redis, and Celery with JWT-based role authentication and REST API architecture</li>
+                        <li>Engineered a secure appointment booking system with conflict prevention, treatment tracking, and a one-to-one diagnosis record per appointment</li>
+                        <li>Integrated background jobs via Celery + Redis for daily patient reminders, monthly doctor reports (PDF), and on-demand CSV exports of treatment history</li>
+                        <li>Implemented Redis caching for faster data retrieval and Vue.js reactive frontend with Axios for seamless API communication across all three dashboards</li>
                     </ul>
-                    <a href="healthcare-details.html" class="more-details-btn">More Details</a>
+                    <div class="project-links">
+                        <a href="healthcare-details.html" class="more-details-btn">More Details</a>
+                    </div>
                 </div>
                 <div class="project-image" style="object-fit:contain; background-color: #dbefe7;">
-                    <img src="pic4.png" alt="Healthcare App">
+                    <img src="pic4.png" alt="Hospital Management System">
                 </div>
             </div>
+
+            <!-- Medicare: AI-Powered Telehealth Platform -->
             <div class="project-item">
                 <div class="project-content">
-                    <div class="project-title">T20 Cricket Score Predictor</div>
-                    <div class="experience-period">July 2025 - August 2025</div>
+                    <div class="project-title">Medicare: AI-Powered Telehealth Platform</div>
+                    <div class="experience-period">May 2024 – June 2024 · Flask · ML · API Integration</div>
                     <ul>
-                        <li>Developed a predictive model for T20 cricket match scores using Python and machine learning
-                            libraries</li>
-                        <li>Utilized historical match data to train the model and improve accuracy</li>
-                        <li>Deployed the model as a web application for user interaction</li>
+                        <li>Developed a full-stack telehealth platform using Flask to connect patients with doctors for online consultations, appointment booking, and prescription management</li>
+                        <li>Integrated a machine learning model as a preliminary symptom checker, providing users with diagnostic insights based on their reported symptoms</li>
+                        <li>Engineered a secure multi-user system and integrated Google Meet API for live video consultations and an email API for automated appointment reminders</li>
+                        <li>Implemented an emergency alert feature to automatically notify the nearest hospital and a registered family contact upon critical symptom detection</li>
                     </ul>
-                    <a href="cricket-details.html" class="more-details-btn">More Details</a>
+                    <div class="project-links">
+                        <a href="healthcare-details.html" class="more-details-btn">More Details</a>
+                    </div>
+                </div>
+                <div class="project-image" style="object-fit:contain; background-color: #e8f4f0;">
+                    <img src="pic4.png" alt="Medicare Telehealth Platform">
+                </div>
+            </div>
+
+            <!-- T20 Cricket Score Predictor -->
+            <div class="project-item">
+                <div class="project-content">
+                    <div class="project-title">T20 Cricket Score Prediction Model</div>
+                    <div class="experience-period">July 2025 – August 2025 · Python · ML · Flask</div>
+                    <ul>
+                        <li>Designed and applied a Random Forest Regressor to predict final T20 match scores in real-time, achieving 98% accuracy with an RMSE of just 2.6 runs on the test dataset</li>
+                        <li>Created domain-specific features — run rate, wickets remaining, last 5-over momentum — processing 5+ lakh ball-by-ball records to significantly outperform baseline linear models</li>
+                        <li>Executed a complete data science workflow: data cleaning (Pandas), feature scaling, model training (Scikit-learn), and performance validation (MAE, RMSE, R²)</li>
+                        <li>Deployed the model as a Flask web application, allowing users to input live match data and instantly receive a predicted final score</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="cricket-details.html" class="more-details-btn">More Details</a>
+                    </div>
                 </div>
                 <div class="project-image" style="object-fit:contain; background-color: #dbefe7;">
                     <img src="t20.jpeg" alt="T20 Cricket Score Predictor">
                 </div>
             </div>
+
+            <!-- Business Performance & Customer Insights -->
             <div class="project-item">
                 <div class="project-content">
                     <div class="project-title">Business Performance & Customer Insights Analysis</div>
-                    <div class="experience-period">May 2025 - July 2025</div>
+                    <div class="experience-period">May 2025 – July 2025 · SQL · Python · Power BI</div>
                     <ul>
-                        <li>Analysed 10K+ daily sales and customer records using SQL and Python to derive customer segments, contribution patterns, and operational performance insights</li>
-                        <li>Executed data cleaning, validation, and transformation across multiple tables, improving data consistency and reporting accuracy</li>
-                        <li>Composed KPI reports and summary dashboards in Excel and Power BI to monitor sales performance, customer retention, and category-wise contribution</li>
-                        <li>Generated insights supporting pricing optimization, customer targeting, and operational efficiency, enabling data-backed business decisions</li>
+                        <li>Analysed ₹355.80M in revenue across 12,500+ transactions and 2,191 unique customers over 6 months, identifying a 96.35% retention rate and Electronics as the dominant category (80.34% revenue share)</li>
+                        <li>Designed a star schema data model with 28+ custom DAX measures; built 4-page Power BI dashboard with 8 synchronized slicers covering Executive KPIs, Sales, Customer Analytics, and Product Insights</li>
+                        <li>Executed multi-table SQL joins, data cleaning, and statistical analysis (outlier detection flagged 1,608 high-value transactions) to ensure reporting accuracy across 400 products and 5 categories</li>
+                        <li>Delivered strategic recommendations on VIP customer expansion, non-electronics category growth, age-targeted marketing, and Tier-2 city digital penetration</li>
                     </ul>
-                    <a href="customer-purchase.html" class="more-details-btn">More Details</a>
+                    <div class="project-links">
+                        <a href="customer-purchase.html" class="more-details-btn">More Details</a>
+                        <a href="https://github.com/i-satyamsaurabh/Business-Performance-Customer-Insights-Analysis-" target="_blank" class="github-btn">⭐ GitHub</a>
+                    </div>
                 </div>
-                <div class="project-image" style="object-fit:contain; background-color: #dbefe7;">
-                    <img src="customer-purchase.jpeg" alt="Business Performance & Customer Insights Analysis">
+                <div class="project-image" style="object-fit:contain; background-color: #f0f4fb;">
+                    <img src="business-perf-1.jpg" alt="Business Performance & Customer Insights Analysis">
                 </div>
             </div>
 
+            <!-- Mobile Usage & Behaviour Analysis -->
             <div class="project-item">
                 <div class="project-content">
                     <div class="project-title">Mobile Usage & Behaviour Analysis</div>
-                    <div class="experience-period">Feb 2025 - March 2025</div>
+                    <div class="experience-period">Feb 2025 – March 2025 · Python · Power BI · EDA</div>
                     <ul>
-                        <li>Accessed mobile usage data from 7K+ users across 5 device models, segmented by age group & gender, to evaluate screen time, data consumption, and battery trends</li>
-                        <li>Conducted EDA using Python (Pandas) to uncover usage patterns and risk indicators, including higher digital dependency among younger users</li>
-                        <li>Developed a 5-level user behaviour classification framework (Minimal to Dangerous) based on app count and daily usage duration</li>
-                        <li>Prepared Power BI dashboards highlighting insights on digital well-being, OS preference, and battery optimization</li>
+                        <li>Analysed 7,500 mobile user records across 5 device models (iPhone 14, Samsung Galaxy S24, Pixel 8, Xiaomi 13, OnePlus 11) to evaluate screen time, data consumption, and battery trends by age and gender</li>
+                        <li>Flagged 6.03% of users (452/7,500) as high digital-dependency risk; discovered highest concentration in the 26–35 age group and an average screen time of 6.41 hrs/day (r = 0.891 correlation with usage score)</li>
+                        <li>Built a 5-level behaviour classification framework (Minimal → Dangerous) using normalized screen time and app count scores; dangerous users charged devices 1.34×/day vs 0.15× for Minimal users</li>
+                        <li>Developed an interactive 4-page Power BI dashboard with 5 synchronized slicers and DAX measures covering Executive Summary, Demographic Insights, Digital Well-being Risk, and Device & Battery pages</li>
                     </ul>
-                    <a href="mobile-analysis-details.html" class="more-details-btn">More Details</a>
+                    <div class="project-links">
+                        <a href="mobile-analysis-details.html" class="more-details-btn">More Details</a>
+                        <a href="https://github.com/i-satyamsaurabh/Mobile-Usage-Analysis" target="_blank" class="github-btn">⭐ GitHub</a>
+                    </div>
                 </div>
-                <div class="project-image" style="object-fit:contain; background-color: #dbefe7;">
-                    <img src="pic2.png" alt="Mobile Usage Analysis Dashboard">
+                <div class="project-image" style="object-fit:contain; background-color: #f4f0fb;">
+                    <img src="mobile-usage-1.jpg" alt="Mobile Usage & Behaviour Analysis Dashboard">
                 </div>
             </div>
+
+            <!-- Sales Data Trend Analysis -->
             <div class="project-item">
                 <div class="project-content">
                     <div class="project-title">Sales Data Trend Analysis</div>
-                    <div class="experience-period">March 2025 - April 2025</div>
+                    <div class="experience-period">March 2025 – April 2025 · SQL · Excel · Power BI</div>
                     <ul>
                         <li>Examined 12+ months of sales history with 50K+ records using SQL and Excel to evaluate seasonality cycles, growth patterns, and period-over-period performance</li>
                         <li>Cleaned, transformed, and validated multi-period datasets, ensuring accurate KPI reporting and time-based comparisons</li>
                         <li>Created Power BI and Excel dashboards to track sales growth, category-wise performance, and regional contribution across time periods</li>
                         <li>Generated trend-based insights supporting forecasting discussions, strategic planning, and management reporting</li>
                     </ul>
-                    <a href="#projects" class="more-details-btn">More Details</a>
+                    <div class="project-links">
+                        <a href="#projects" class="more-details-btn">More Details</a>
+                    </div>
                 </div>
                 <div class="project-image" style="object-fit:contain; background-color: #e8f4fd;">
-                    <img src="pic2.png" alt="Sales Data Trend Analysis">
+                    <img src="business-perf-2.jpg" alt="Sales Data Trend Analysis">
                 </div>
             </div>
+
+            <!-- Household Services Application -->
             <div class="project-item">
                 <div class="project-content">
                     <div class="project-title">Household Services Application</div>
-                    <div class="experience-period">May 2024 - June 2024</div>
+                    <div class="experience-period">May 2024 – June 2024 · Flask · SQLite · Bootstrap</div>
                     <ul>
-                        <li>Developed a multi-user web app connecting customers with service providers</li>
-                        <li>Implemented user authentication and role-based access control</li>
-                        <li>Utilized Flask, Jinja, Python, Bootstrap, and SQLite for full-stack functionality</li>
+                        <li>Developed a multi-user web app connecting customers with service providers across multiple service categories</li>
+                        <li>Implemented user authentication and role-based access control for Customers, Service Professionals, and Admin</li>
+                        <li>Utilized Flask, Jinja, Python, Bootstrap, and SQLite for full-stack functionality; deployed on Render</li>
                     </ul>
-                    <a href="household-details.html" class="more-details-btn">More Details</a>
+                    <div class="project-links">
+                        <a href="household-details.html" class="more-details-btn">More Details</a>
+                    </div>
                 </div>
                 <div class="project-image" style="object-fit:contain; background-color: #dbefe7;">
                     <img src="household.jpeg" alt="Household Services Application">
                 </div>
             </div>
 
+            <!-- Blog Website -->
             <div class="project-item">
                 <div class="project-content">
                     <div class="project-title">Blog Website</div>
-                    <div class="experience-period">January 2024 - February 2024</div>
+                    <div class="experience-period">January 2024 – February 2024 · Flask · SQLite</div>
                     <ul>
                         <li>Created a blog website with user authentication and comment section</li>
                         <li>Utilized Flask, Jinja, Python, Bootstrap, and SQLite for full-stack functionality</li>
                         <li>Deployed on Render and hosted on GitHub</li>
                     </ul>
-                    <a href="blog-details.html" class="more-details-btn">More Details</a>
+                    <div class="project-links">
+                        <a href="blog-details.html" class="more-details-btn">More Details</a>
+                    </div>
                 </div>
                 <div class="project-image" style="object-fit:contain; background-color: #fefefe;">
                     <img src="pic1.png" alt="Blog Website">
